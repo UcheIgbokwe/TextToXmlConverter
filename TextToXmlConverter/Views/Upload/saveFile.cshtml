@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "File Upload";
+}
+<h2 style="background-color: red;color: black; text-align: center; font-style: italic">TXT UPLOAD FILE VALIDATION&nbsp;</h2>
+
+<br /><b />
+
+
+@using (Html.BeginForm("SaveFile", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.TextBox("UploadedFile", "", new { type = "File" })
+
+        <input type="submit" value="Upload & Convert" />
+        @{
+            if (ViewBag.Message != null)
+            {
+                @ViewBag.Message
+            }
+
+        }
+    </div>
+
+
+}
+
+<footer>
+    <p style="background-color: red; color: black; text-align: center; font-style: italic">© @DateTime.Now.ToLocalTime()</p> @*Add Date Time*@
+</footer>
+
+
